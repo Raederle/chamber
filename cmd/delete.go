@@ -3,8 +3,8 @@ package cmd
 import (
 	"strings"
 
+	"github.com/Raederle/chamber/store"
 	"github.com/pkg/errors"
-	"github.com/segmentio/chamber/store"
 	"github.com/spf13/cobra"
 )
 

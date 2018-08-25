@@ -207,6 +207,18 @@
 			"revisionTime": "2018-07-25T21:42:05Z"
 		},
 		{
+			"checksumSHA1": "FkBALtXiN4PCzFnl/G2gXFFLV3E=",
+			"path": "github.com/aws/aws-sdk-go/service/secretsmanager",
+			"revision": "4d828cba40c246216411746ce920a0fb44d286ce",
+			"revisionTime": "2018-08-20T21:31:53Z"
+		},
+		{
+			"checksumSHA1": "KsayyuUkYV4ryR1ll2F3nXlKbz4=",
+			"path": "github.com/aws/aws-sdk-go/service/secretsmanager/secretsmanageriface",
+			"revision": "4d828cba40c246216411746ce920a0fb44d286ce",
+			"revisionTime": "2018-08-20T21:31:53Z"
+		},
+		{
 			"checksumSHA1": "UfgmCQjT787z6llIfGM9ZHzuydM=",
 			"path": "github.com/aws/aws-sdk-go/service/ssm",
 			"revision": "ddfc3ca419279cf2f67b12719e51fe8500d0029d",
@@ -289,5 +301,5 @@
 			"revisionTime": "2016-01-29T19:31:06Z"
 		}
 	],
-	"rootPath": "github.com/segmentio/chamber"
+	"rootPath": "github.com/Raederle/chamber"
 }

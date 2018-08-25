@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/segmentio/chamber/store"
+	"github.com/Raederle/chamber/store"
 	"github.com/spf13/cobra"
 )
 
@@ -30,6 +30,7 @@ const (
 const (
 	SSMBackend = "SSM"
 	S3Backend  = "S3"
+	ASMBackend = "ASM"
 
 	BackendEnvVar = "CHAMBER_SECRET_BACKEND"
 )
@@ -80,6 +81,8 @@ func getSecretStore() store.Store {
 	switch backend {
 	case S3Backend:
 		s = store.NewS3Store(numRetries)
+	case ASMBackend:
+		s = store.NewASMStore(numRetries)
 	case SSMBackend:
 		fallthrough
 	default:

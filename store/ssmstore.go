@@ -14,8 +14,8 @@ import (
 )
 
 const (
-	// DefaultKeyID is the default alias for the KMS key used to encrypt/decrypt secrets
-	DefaultKeyID = "alias/parameter_store_key"
+	// DefaultSSMKeyID is the default alias for the KMS key used to encrypt/decrypt secrets
+	DefaultSSMKeyID = "alias/parameter_store_key"
 )
 
 // validPathKeyFormat is the format that is expected for key names inside parameter store
@@ -60,7 +60,7 @@ func NewSSMStore(numRetries int) *SSMStore {
 func (s *SSMStore) KMSKey() string {
 	fromEnv, ok := os.LookupEnv("CHAMBER_KMS_KEY_ALIAS")
 	if !ok {
-		return DefaultKeyID
+		return DefaultSSMKeyID
 	}
 	if !strings.HasPrefix(fromEnv, "alias/") {
 		return fmt.Sprintf("alias/%s", fromEnv)
@@ -178,6 +178,7 @@ func (s *SSMStore) readLatest(id SecretId) (Secret, error) {
 		Names:          []*string{aws.String(s.idToName(id))},
 		WithDecryption: aws.Bool(true),
 	}
+	fmt.Printf("getParameters: %v", getParametersInput)
 
 	resp, err := s.svc.GetParameters(getParametersInput)
 	if err != nil {
